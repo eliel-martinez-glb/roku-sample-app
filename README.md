@@ -1,4 +1,4 @@
-# hello-world
+# Sample Roku App
 A basic sample channel application for Roku.
 
 This app uses TMDB API https://developer.themoviedb.org/docs To fetch the data that is shown in the app.
