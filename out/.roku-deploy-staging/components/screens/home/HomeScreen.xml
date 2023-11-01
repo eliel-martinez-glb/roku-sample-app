@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="HomeScreen" extends="Group" >
+
+    <script type="text/brightscript" uri="pkg:/components/screens/home/HomeScreen.brs" />
+    <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+    <script type="text/brightscript" uri="pkg:/components/env/AppInfo.brs" />
+
+    <children>
+        <Rectangle
+            width="1280"
+            height="720"
+            color="0x000000"
+        />
+        <Poster 
+            id="currentItemImage" 
+            translation="[520,0]" 
+            width="780" 
+            height="439" 
+            loadDisplayMode="scaleToFit"
+            />
+        <Poster
+            width="1280"
+            height="439"
+            uri="pkg:/images/gradient.png"
+        />
+        <LayoutGroup itemSpacings="[20]" layoutDirection="vert" translation="[50,100]" >
+            <Label 
+                id="selectedContentTitle" 
+                text="Title" 
+                width="500"
+                color="0xFFFFFF" 
+                font="font:LargeBoldSystemFont"/>
+            <Label 
+                id="selectedContentDescription" 
+                text="Description" 
+                font="font:SmallSystemFont" 
+                width="500"
+                wrap="true"
+                maxLines="3"/>
+        </LayoutGroup>
+        <ContentRowList id="featuredRowList" translation="[50,270]" />
+    </children>
+</component>

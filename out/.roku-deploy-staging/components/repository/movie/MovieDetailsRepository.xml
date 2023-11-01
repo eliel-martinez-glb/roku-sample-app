@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="MovieDetailsRepository" extends="BaseRepository" >
+    <script type="text/brightscript" uri="MovieDetailsRepository.brs"/>
+
+    <interface>
+        <function name="fetchMovieDetails"/>
+        <!-- <function name="fetchTrailers"/> -->
+    </interface>
+</component>

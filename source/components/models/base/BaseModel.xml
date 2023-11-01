@@ -1,0 +1,7 @@
+<component name="BaseModel" extends="ContentNode">
+    <script type="text/brightscript" uri="BaseModel.brs" />
+
+    <interface>
+        <function name="parseData" />
+    </interface>
+</component>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="ContentRepository" extends="BaseRepository" >
+    <script type="text/brightscript" uri="ContentRepository.brs"/>
+
+    <interface>
+        <function name="fetchNowPlaying"/>
+        <function name="fetchUpcoming"/>
+    </interface>
+</component>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="ContentTile" extends="Poster" >
+
+    <script type="text/brightscript" uri="pkg:/components/tiles/ContentTile.brs" />
+    <script type="text/brightscript" uri="pkg:/components/env/AppInfo.brs" />
+
+    <interface> 
+        <field id="itemContent" type="node" onChange="itemContentChanged"/> 
+    </interface>
+
+    <children>
+        <Poster 
+            id="itemImage" 
+            translation="[0,0]" 
+            width="154" 
+            height="231" 
+            loadWidth="154" 
+            loadHeight="231"
+            bitmapWidth="154"
+            bitmapHeight="231"/>
+    </children>
+</component>

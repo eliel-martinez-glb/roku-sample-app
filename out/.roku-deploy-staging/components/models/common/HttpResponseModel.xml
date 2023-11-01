@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="HttpResponseModel" extends="BaseModel">
+    <interface>
+        <field id="errorStatus" type="boolean" />
+        <field id="code" type="integer" />
+        <field id="msg" type="string" />
+        <field id="data" type="node" />
+        <field id="request" type="assocarray" />
+    </interface>
+</component>

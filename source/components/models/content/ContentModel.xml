@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="ContentModel" extends="BaseModel">
+    <script type="text/brightscript" uri="ContentModel.brs" />
+    <interface>
+        <field id="contentRow" type="array" />
+    </interface>
+</component>
