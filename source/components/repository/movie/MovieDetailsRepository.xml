@@ -4,6 +4,6 @@
 
     <interface>
         <function name="fetchMovieDetails"/>
-        <!-- <function name="fetchTrailers"/> -->
+        <function name="fetchMovieTrailers"/>
     </interface>
 </component>

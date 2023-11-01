@@ -6,19 +6,12 @@ sub init()
     m.repository = createObject("roSGNode", "ContentRepository")
     fetchHomeContent()
     m.featuredRowList.ObserveField("rowItemFocused", "onRowItemFocused")
-    m.featuredRowList.ObserveField("itemSelected", "onItemSelected")
+    m.top.ObserveField("visible", "onVisibleChange")
 end sub
 
-sub onItemSelected()
-    m.currentRow = m.featuredRowList.rowItemSelected[0]
-    m.currentColumn = m.featuredRowList.rowItemSelected[1]
-    data = m.featuredRowList.content.getChild(m.currentRow).getChild(m.currentColumn)
-    if data <> invalid
-        m.homeScreen = m.top.getScene().findNode("HomeScreen")
-        m.movieDetailsScreen = m.top.getScene().findNode("MovieDetailsScreen")
-        m.homeScreen.visible = false
-        m.movieDetailsScreen.visible = true
-        m.movieDetailsScreen.movieId = data.id
+sub onVisibleChange() ' invoked when GridScreen change visibility
+    if m.top.visible = true
+        m.featuredRowList.SetFocus(true) ' set focus to rowList if GridScreen visible
     end if
 end sub
 
@@ -105,4 +98,3 @@ sub setUpContent()
     m.featuredRowList.content = m.data
     m.featuredRowList.SetFocus(true)
 end sub
-

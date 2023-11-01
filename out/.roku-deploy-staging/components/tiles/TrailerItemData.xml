@@ -1,0 +1,10 @@
+<component name="TrailerItemData" extends="ContentNode">
+ 
+<interface> 
+  <field id="id" type="string" />
+  <field id="name" type="string" />
+  <field id="key" type="string" />
+  <field id="site" type="string" />
+</interface>
+
+</component>

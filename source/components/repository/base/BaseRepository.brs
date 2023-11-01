@@ -38,7 +38,7 @@ sub generateApiPaths()
             "topRated": baseUrl + "/"+ apiVersion +"/movie/top_rated?api_key=" + getApiKey()
             "upcoming": baseUrl + "/"+ apiVersion +"/movie/upcoming?api_key=" + getApiKey()
             "movieDetails": baseUrl + "/"+ apiVersion +"/movie/{{movieid}}?api_key=" + getApiKey()
-            "movieTrailers": baseUrl + "/"+ apiVersion +"/movie/{{movieid}}?api_key=" + getApiKey()
+            "movieTrailers": baseUrl + "/"+ apiVersion +"/movie/{{movieid}}/videos?api_key=" + getApiKey()
         }
 
     end if

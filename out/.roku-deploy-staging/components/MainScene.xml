@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <component name="MainScene" extends="Scene" >
     <script type="text/brightscript" uri="pkg:/components/MainScene.brs" />
+    <script type="text/brightscript" uri="pkg:/components/navigation/ScreenStack.brs" />
+    <script type="text/brightscript" uri="pkg:/components/navigation/HomeScreenNav.brs" />
+    <script type="text/brightscript" uri="pkg:/components/navigation/MovieDetailsScreenNav.brs" />
 
     <children>
-        <HomeScreen id="homeScreen" />
-        <MovieDetailsScreen id="movieDetailsScreen" />
+        <Rectangle
+            width="1280"
+            height="720"
+            color="0x000000"
+        />
     </children>
 </component>

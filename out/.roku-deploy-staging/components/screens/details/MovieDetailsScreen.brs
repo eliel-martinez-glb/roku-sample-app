@@ -2,29 +2,14 @@ sub init()
     m.theme = Theme().getCurrent()
     applyTheme()
 
-    ' m.featuredRowList = m.top.FindNode("featuredRowList")
     m.repository = createObject("roSGNode", "MovieDetailsRepository")
-    ' fetchMovieDetails()
-    ' m.featuredRowList.ObserveField("rowItemFocused", "onRowItemFocused")
+    m.trailersRowList = m.top.FindNode("trailersRowList")
 end sub
 
 sub onMovieIdChanged()
     fetchMovieDetails()
 end sub
 
-
-' function onRowItemFocused() as void
-'     focusedItem = m.featuredRowList.rowItemFocused
-'     if focusedItem <> invalid 
-'         row = focusedItem[0]
-'         col = focusedItem[1]
-'         rowItem = m.featuredRowList.content.getChild(row)
-'         videoContent = rowItem.getChild(col)
-'         m.selectedContentTitle.text = videoContent.title
-'         m.selectedContentDescription.text = videoContent.description
-'         m.currentItemImage.uri = getImageBaseUrl("backdrop") + videoContent.backdrop
-'     end if
-' end function
 
 sub applyTheme()
     m.selectedContentTitle = m.top.FindNode("selectedContentTitle")
@@ -35,8 +20,6 @@ sub applyTheme()
 end sub
 
 sub fetchMovieDetails()
-    m.data = CreateObject("roSGNode", "ContentNode")
-    
     httpResponse = createObject("roSGNode", "HttpResponseNode")
     httpResponse.observeField("response", "onFetchMovieDetailsLoaded")
 
@@ -51,42 +34,41 @@ end sub
 sub onFetchMovieDetailsLoaded(event as Object)
     response = event.getData()
     
-    print response.data.movie
     movie = response.data.movie
     m.selectedContentTitle.text = movie.title
     m.selectedContentDescription.text = movie.description
     m.currentItemImage.uri = getImageBaseUrl("backdrop") + movie.backdrop
+
+    fetchMovieTrailers()
 end sub
 
-' sub fetchUpcomingContent()
-'     httpResponse = createObject("roSGNode", "HttpResponseNode")
-'     httpResponse.observeField("response", "onFetchUpcomingLoaded")
 
-'     reqArgs = {
-'         "httpResponse": httpResponse
-'     }
+sub fetchMovieTrailers()
+    httpResponse = createObject("roSGNode", "HttpResponseNode")
+    httpResponse.observeField("response", "onFetchMovieTrailersLoaded")
 
-'     m.repository.callFunc("fetchUpcoming", reqArgs)
-' end sub
+    reqArgs = {
+        "httpResponse": httpResponse
+        "movieId": m.top.movieId
+    }
 
-' sub onFetchUpcomingLoaded(event as Object)
-'     response = event.getData()
+    m.repository.callFunc("fetchMovieTrailers", reqArgs)
+end sub
+
+sub onFetchMovieTrailersLoaded(event as Object)
+    response = event.getData()
+
+    m.videos = CreateObject("roSGNode", "ContentNode")
+    row = m.videos.CreateChild("ContentNode")
+    row.title = "Trailers"
+    for each video in response.data.videos
+        item = row.CreateChild("TrailerItemData")
+        item.id = video.id
+        item.name         = video.name
+        item.key   = video.key
+        item.site        = video.site
+    end for
     
-'     row = m.data.CreateChild("ContentNode")
-'     row.title = "Upcoming"
-'     for each contentItem in response.data.contentRow
-'         item = row.CreateChild("ContentItemData")
-'         item.id = contentItem.id
-'         item.title         = contentItem.title
-'         item.description   = contentItem.description
-'         item.poster        = contentItem.poster
-'         item.backdrop  = contentItem.backdrop
-'     end for
-    
-'     setUpContent()
-' end sub
-
-' sub setUpContent()
-'     m.featuredRowList.content = m.data
-'     m.featuredRowList.SetFocus(true)
-' end sub
+    m.trailersRowList.content = m.videos
+    m.trailersRowList.SetFocus(true)
+end sub

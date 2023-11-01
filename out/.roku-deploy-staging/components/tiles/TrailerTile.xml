@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="TrailerTile" extends="Poster" >
+
+    <script type="text/brightscript" uri="pkg:/components/tiles/TrailerTile.brs" />
+    <script type="text/brightscript" uri="pkg:/components/env/AppInfo.brs" />
+
+    <interface> 
+        <field id="itemContent" type="node" onChange="itemContentChanged"/> 
+    </interface>
+
+    <children>
+        <Poster 
+            id="thumbnail" 
+            translation="[0,0]" 
+            width="354" 
+            height="200" 
+            loadWidth="354" 
+            loadHeight="200"
+            bitmapWidth="354"
+            bitmapHeight="200"/>
+    </children>
+</component>

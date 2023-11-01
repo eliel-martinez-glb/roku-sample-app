@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="MovieVideos" extends="BaseModel">
+    <script type="text/brightscript" uri="MovieVideos.brs" />
+    <interface>
+        <field id="videos" type="array" />
+    </interface>
+</component>

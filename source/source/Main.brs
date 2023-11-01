@@ -32,20 +32,20 @@ sub Main()
     end while
 end sub
 
-sub onMenuItemSelected()
-    selectedMenuItem = m.top.findNode("sideMenuRowList").getFocusedChild()
-    if selectedMenuItem <> invalid
-        ' Get the scene name from the selected menu item
-        sceneName = selectedMenuItem.sceneName
+' sub onMenuItemSelected()
+'     selectedMenuItem = m.top.findNode("sideMenuRowList").getFocusedChild()
+'     if selectedMenuItem <> invalid
+'         ' Get the scene name from the selected menu item
+'         sceneName = selectedMenuItem.sceneName
 
-        ' Create and show the selected scene
-        if sceneName <> invalid
-            scene = CreateObject("roSGScreen")
-            port = CreateObject("roMessagePort")
-            scene.setMessagePort(port)
-            selectedScene = CreateObject("roSGNode", sceneName)
-            scene.show()
-            scene.append(selectedScene)
-        end if
-    end if
-end sub
+'         ' Create and show the selected scene
+'         if sceneName <> invalid
+'             scene = CreateObject("roSGScreen")
+'             port = CreateObject("roMessagePort")
+'             scene.setMessagePort(port)
+'             selectedScene = CreateObject("roSGNode", sceneName)
+'             scene.show()
+'             scene.append(selectedScene)
+'         end if
+'     end if
+' end sub

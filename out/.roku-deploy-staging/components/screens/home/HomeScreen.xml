@@ -5,12 +5,12 @@
     <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
     <script type="text/brightscript" uri="pkg:/components/env/AppInfo.brs" />
 
+    <interface>
+        <field id="rowItemSelected" type="intarray" alwaysnotify="true" alias="featuredRowList.rowItemSelected" />
+        <field id="jumpToRowItem" type="intarray" alias="featuredRowList.jumpToRowItem" />
+    </interface>
+
     <children>
-        <Rectangle
-            width="1280"
-            height="720"
-            color="0x000000"
-        />
         <Poster 
             id="currentItemImage" 
             translation="[520,0]" 
@@ -38,6 +38,20 @@
                 wrap="true"
                 maxLines="3"/>
         </LayoutGroup>
-        <ContentRowList id="featuredRowList" translation="[50,270]" />
+        <RowList 
+            id="featuredRowList" 
+            itemComponentName = "ContentTile"
+            numRows = "2"
+            translation="[50,270]"
+            itemSize= "[1230, 231]"
+            rowHeights= "[231]" 
+            rowItemSize = "[ [154, 231] ]"
+            itemSpacing = "[ 0, 80 ]"
+            rowItemSpacing = "[ [20, 0] ]"
+            rowLabelOffset = "[ [0, 30] ]"
+            rowFocusAnimationStyle = "floatingFocus"
+            showRowLabel = "[true, true]"
+            rowLabelColor="0xa0b033ff"
+            visible = "true"/>
     </children>
 </component>

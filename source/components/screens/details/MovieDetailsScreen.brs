@@ -3,6 +3,7 @@ sub init()
     applyTheme()
 
     m.repository = createObject("roSGNode", "MovieDetailsRepository")
+    m.trailersRowList = m.top.FindNode("trailersRowList")
 end sub
 
 sub onMovieIdChanged()
@@ -19,8 +20,6 @@ sub applyTheme()
 end sub
 
 sub fetchMovieDetails()
-    m.data = CreateObject("roSGNode", "ContentNode")
-    
     httpResponse = createObject("roSGNode", "HttpResponseNode")
     httpResponse.observeField("response", "onFetchMovieDetailsLoaded")
 
@@ -39,4 +38,37 @@ sub onFetchMovieDetailsLoaded(event as Object)
     m.selectedContentTitle.text = movie.title
     m.selectedContentDescription.text = movie.description
     m.currentItemImage.uri = getImageBaseUrl("backdrop") + movie.backdrop
+
+    fetchMovieTrailers()
+end sub
+
+
+sub fetchMovieTrailers()
+    httpResponse = createObject("roSGNode", "HttpResponseNode")
+    httpResponse.observeField("response", "onFetchMovieTrailersLoaded")
+
+    reqArgs = {
+        "httpResponse": httpResponse
+        "movieId": m.top.movieId
+    }
+
+    m.repository.callFunc("fetchMovieTrailers", reqArgs)
+end sub
+
+sub onFetchMovieTrailersLoaded(event as Object)
+    response = event.getData()
+
+    m.videos = CreateObject("roSGNode", "ContentNode")
+    row = m.videos.CreateChild("ContentNode")
+    row.title = "Trailers"
+    for each video in response.data.videos
+        item = row.CreateChild("TrailerItemData")
+        item.id = video.id
+        item.name         = video.name
+        item.key   = video.key
+        item.site        = video.site
+    end for
+    
+    m.trailersRowList.content = m.videos
+    m.trailersRowList.SetFocus(true)
 end sub
