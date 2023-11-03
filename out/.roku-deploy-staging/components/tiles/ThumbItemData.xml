@@ -1,0 +1,9 @@
+<component name="ThumbItemData" extends="ContentNode">
+ 
+<interface> 
+  <field id="id" type="string" />
+  <field id="thumb" type="string" />
+  <field id="streamUrl" type="string" />
+</interface>
+
+</component>

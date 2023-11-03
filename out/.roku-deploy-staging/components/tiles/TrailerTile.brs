@@ -4,5 +4,5 @@ end function
 
 function itemContentChanged() as void
     itemData = m.top.itemContent
-    m.thumbnail.uri = "pkg:/images/thumb.png"
+    m.thumbnail.uri = itemData.thumb
 end function

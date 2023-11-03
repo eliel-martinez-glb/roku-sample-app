@@ -40,17 +40,17 @@
                 text="Description" 
                 font="font:SmallSystemFont" 
                 width="500"
-                height="439"
+                maxLines="7"
                 wrap="true"/>
         </LayoutGroup>
         <RowList 
             id="trailersRowList" 
             itemComponentName = "TrailerTile"
             numRows = "2"
-            translation="[50,500]"
-            itemSize= "[1230, 200]"
-            rowHeights= "[200]" 
-            rowItemSize = "[ [354, 200] ]"
+            translation="[50,400]"
+            itemSize= "[1230, 180]"
+            rowHeights= "[180]" 
+            rowItemSize = "[ [320, 180] ]"
             itemSpacing = "[ 0, 80 ]"
             rowItemSpacing = "[ [20, 0] ]"
             rowLabelOffset = "[ [0, 30] ]"

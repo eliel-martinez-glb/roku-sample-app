@@ -32,5 +32,7 @@ prod_base_url=https://api.themoviedb.org
 qa_base_url=https://api.themoviedb.org
 image_base_url=https://image.tmdb.org/t/p
 apikey=f2618291ff8bd8124560770f32780c02
+youtube_api_key=AIzaSyC1ZAn_JA7L7wEYoRSyHVggRbuKgzNnr6A
+youtube_api_base_url=https://youtube.googleapis.com/youtube/v3
 
 api_version=3

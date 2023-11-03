@@ -12,11 +12,11 @@
         <Poster 
             id="thumbnail" 
             translation="[0,0]" 
-            width="354" 
-            height="200" 
-            loadWidth="354" 
-            loadHeight="200"
-            bitmapWidth="354"
-            bitmapHeight="200"/>
+            width="320" 
+            height="180" 
+            loadWidth="320" 
+            loadHeight="180"
+            bitmapWidth="320"
+            bitmapHeight="180"/>
     </children>
 </component>

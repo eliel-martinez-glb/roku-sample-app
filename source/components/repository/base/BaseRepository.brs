@@ -30,15 +30,19 @@ sub generateApiPaths()
     if m.uriMap = invalid
         baseUrl = getAppBaseUrl()
         apiVersion = getApiVersion()
+        apiKey = getApiKey()
+        youtubeBaseUrl = getYoutubeBaseUrl()
+        youtubeApiKey = getYoutubeApiKey()
         
 
         m.uriMap = {
-            "nowPlaying": baseUrl + "/"+ apiVersion +"/movie/now_playing?api_key=" + getApiKey()
-            "popular": baseUrl + "/"+ apiVersion +"/movie/popular?api_key=" + getApiKey()
-            "topRated": baseUrl + "/"+ apiVersion +"/movie/top_rated?api_key=" + getApiKey()
-            "upcoming": baseUrl + "/"+ apiVersion +"/movie/upcoming?api_key=" + getApiKey()
-            "movieDetails": baseUrl + "/"+ apiVersion +"/movie/{{movieid}}?api_key=" + getApiKey()
-            "movieTrailers": baseUrl + "/"+ apiVersion +"/movie/{{movieid}}/videos?api_key=" + getApiKey()
+            "nowPlaying": baseUrl + "/"+ apiVersion +"/movie/now_playing?api_key=" + apiKey
+            "popular": baseUrl + "/"+ apiVersion +"/movie/popular?api_key=" + apiKey
+            "topRated": baseUrl + "/"+ apiVersion +"/movie/top_rated?api_key=" + apiKey
+            "upcoming": baseUrl + "/"+ apiVersion +"/movie/upcoming?api_key=" + apiKey
+            "movieDetails": baseUrl + "/"+ apiVersion +"/movie/{{movieid}}?api_key=" + apiKey
+            "movieTrailers": baseUrl + "/"+ apiVersion +"/movie/{{movieid}}/videos?api_key=" + apiKey
+            "trailerInfo": youtubeBaseUrl +"/videos?part=snippet&id={{trailers}}&key=" + youtubeApiKey
         }
 
     end if
@@ -60,4 +64,12 @@ end function
 
 function getApiKey() as String
     return getAppInfo().GetValue("apikey")
+end function
+
+function getYoutubeApiKey() as String
+    return getAppInfo().GetValue("youtube_api_key")
+end function
+
+function getYoutubeBaseUrl() as String
+    return getAppInfo().GetValue("youtube_api_base_url")
 end function
